@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>YouTube to MP3</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.17/tailwind.min.css">
+    <link rel="stylesheet" href="./stylesheet.css">
+    <link rel="shortcut icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/783/PNG/512/sound-waves_icon-icons.com_64779.png" />
+</head>
+<body>
+    <div class="bg-theme text-center text-dark">
+        <div class="container mx-auto">
+            <div class="mb-4">
+                <h1 class="text-4xl font-bold">YouTube to MP3</h1>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="col-span-12 md:col-span-10 mx-auto">
+                    <form id="go" class="form-group">
+                        <div class="relative">
+                            <input name="url" type="text" class="w-full py-3 px-4 rounded-lg shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search keywords or paste link here..." aria-label="Search" required>
+                            <button class="absolute top-0 right-0 h-full px-6 rounded-lg bg-blue-500 text-white focus:outline-none focus:ring-2 focus:ring-blue-500" type="submit">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mx-auto text-center" id="search-result">
+    </div>
+    <footer class="footer text-center">
+    </footer>
+    <script type="text/javascript">
+        var pt = document.getElementById("go");
+        pt.addEventListener("submit", function (e) {
+            var a = document.querySelector("#go input"), n = a.value.split(/(vi\/|v%3D|v=|\/v\/|youtu\.be\/|\/embed\/|\/shorts\/)/); n[2] && n[2].length > 10 ? (a.value = "https://www.youtube.com/watch?v=" + n[2].split(/[^0-9a-z_\-]/i)[0], search(a.value, "url")) : search(a.value, "q");
+            function search(p, q) {
+                var d = new Date();
+                var n = d.getHours();
+                document.getElementById("search-result").innerHTML = '<iframe id="hphp" style="border: none;" src="https://apiyoutube.cc/?' + q + '=' + p + '&t=' + n + '&color=3b6c96" width="100%" height="530"></iframe>';
+                e.preventDefault();
+            }
+        });
+        function openNav() {
+            var element = document.getElementById("navbarCollapse");
+            if (element.classList.contains('show')) {
+                element.classList.remove("show");
+            } else { element.classList.add("show"); }
+        }
+    </script>
+</body>
+</html>
